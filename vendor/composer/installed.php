@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '0d4554febe3b5337f3803318d8aec3918e9dec11',
+    'reference' => 'd4bbd8ba0ca37d2a76753744663c69b8d8230176',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '0d4554febe3b5337f3803318d8aec3918e9dec11',
+      'reference' => 'd4bbd8ba0ca37d2a76753744663c69b8d8230176',
     ),
     'guzzlehttp/guzzle' => 
     array (
@@ -46,16 +46,6 @@
       array (
       ),
       'reference' => '53330f47520498c0ae1f61f7e2c90f55690c06a3',
-    ),
-    'jmathai/php-multi-curl' => 
-    array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
-      'aliases' => 
-      array (
-        0 => '9999999-dev',
-      ),
-      'reference' => 'ee0917264ab4ef15cf5b318a2dc7b4ac5e5847c7',
     ),
     'myclabs/php-enum' => 
     array (
