@@ -20,7 +20,7 @@ class b2bstack
         $pages = $this->pages();
         $dom = $this->dom;
 
-        foreach ($pages as $page) {
+        foreach ($pages as $p => $page) {
             $dom->loadStr($page);
             foreach ($dom->find('.review-container') as $review) {
 
@@ -59,18 +59,22 @@ class b2bstack
                         "leastlike" => $dom->find('.review-content p')[8]->text,
                         "problemsolved" => $dom->find('.review-content p')[10]->text,
                     ],
-                    "useful" => $dom->find('.review-share span')[0]->text,
-                    "link" => 'https://www.b2bstack.com.br/'.explode('https://www.b2bstack.com.br/', $dom->find('.review-content a')[0]->getAttribute('href'))[1],
+                    "useful" => (int) $dom->find('.review-share span')[0]->text,
+                    "link" => 'https://www.b2bstack.com.br/' . explode('https://www.b2bstack.com.br/', $dom->find('.review-content a')[0]->getAttribute('href'))[1],
                     "starts" => [
                         "recommendation" => $recommendation,
                         "costbenefit" => $costbenefit,
                         "usefacility" => $usefacility,
                         "functionalities" => $functionalities,
                         "support" => $support
-                    ]
+                    ],
+                    "page" => $p+1
                 ];
             }
         }
+
+        if (empty($reviews))
+            return null;
 
         return $reviews;
     }
@@ -84,10 +88,10 @@ class b2bstack
         $dom->loadStr($pages[0]);
 
         $pages_count = count($dom->find('.pagination a'));
-        
+
         for ($i = 1; $i < $pages_count; $i++)
             $pages[] = $mc->addUrl('https://www.b2bstack.com.br/product/' . $this->business . '/avaliacoes?commit=++Popularidade+&order=upvoted&page=' . ($i + 1) . '&utf8=%E2%9C%93');
-        
+
         foreach ($pages as $key => $page)
             $return[] = ($key == 0 ? $page : $page->response);
 
@@ -97,6 +101,5 @@ class b2bstack
     }
 }
 
-$reviews = new b2bstack("cpf-cnpj");
-echo "<pre>";
-print_r($reviews->reviews());
+$reviews = new b2bstack(preg_replace("/[^a-zA-Z0-9-]+/", "", $_GET["b"]));
+echo json_encode($reviews->reviews());
