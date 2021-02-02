@@ -65,8 +65,7 @@ class MultiCurl
   {
     if(gettype($ch) !== 'resource')
     {
-      //??
-      //throw new MultiCurlInvalidParameterException('Parameter must be a valid curl handle');
+      throw new MultiCurlInvalidParameterException('Parameter must be a valid curl handle');
     }
 
     $key = $this->getKey($ch);
@@ -152,7 +151,7 @@ class MultiCurl
 
   private function getKey($ch)
   {
-    return $ch;
+    return (string)$ch;
   }
 
   private function headerCallback($ch, $header)
