@@ -24,6 +24,10 @@ class ComposerStaticInitf4ba1b46f29a2cb8d4e50f721a069789
         array (
             'MyCLabs\\Enum\\' => 13,
         ),
+        'J' => 
+        array (
+            'JMathai\\PhpMultiCurl\\' => 21,
+        ),
         'H' => 
         array (
             'Http\\Promise\\' => 13,
@@ -53,6 +57,10 @@ class ComposerStaticInitf4ba1b46f29a2cb8d4e50f721a069789
         'MyCLabs\\Enum\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/php-enum/src',
+        ),
+        'JMathai\\PhpMultiCurl\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jmathai/php-multi-curl/src',
         ),
         'Http\\Promise\\' => 
         array (

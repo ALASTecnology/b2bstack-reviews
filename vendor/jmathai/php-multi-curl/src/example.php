@@ -24,7 +24,7 @@ $ch4 = curl_init('http://www.microsoft.com');
 curl_setopt($ch4, CURLOPT_RETURNTRANSFER, 1);
 $microsoft = $mc->addCurl($ch4); // call microsoft
 
-// fetch response from ebay and microsoft //
+// fetch response from ebay and microsoft
 echo "The response code from Ebay was {$ebay->code}\n";
 echo "The response code from Microsoft was {$microsoft->code}\n";
 
