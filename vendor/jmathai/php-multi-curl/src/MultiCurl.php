@@ -152,7 +152,7 @@ class MultiCurl
 
   private function getKey($ch)
   {
-    return (string)$ch;
+    return $ch;
   }
 
   private function headerCallback($ch, $header)
