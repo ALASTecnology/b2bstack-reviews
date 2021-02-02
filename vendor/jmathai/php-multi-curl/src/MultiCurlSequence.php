@@ -1,12 +1,9 @@
 <?php namespace JMathai\PhpMultiCurl;
-
-
 /**
  * MultiCurlSequence displays sequence of http calls
  *
  * @author Jaisen Mathai <jaisen@jmathai.com>
  */
-
 class MultiCurlSequence
 {
   private $width = 100;
