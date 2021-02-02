@@ -2,7 +2,7 @@
 
 use PHPHtmlParser\Dom;
 
-require __DIR__ . '/vendor/autoload.php';
+require './vendor/autoload.php';
 
 class b2bstack
 {
