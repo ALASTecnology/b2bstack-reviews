@@ -59,6 +59,7 @@ class b2bstack
                         "leastlike" => $dom->find('.review-content p')[8]->text,
                         "problemsolved" => $dom->find('.review-content p')[10]->text,
                     ],
+                    "date" => implode("-", array_reverse(explode("/", explode('Avaliação enviada em ', $dom->find('.review-date')[0]->text)[1]))),
                     "useful" => (int) $dom->find('.review-share span')[0]->text,
                     "link" => 'https://www.b2bstack.com.br/' . explode('https://www.b2bstack.com.br/', $dom->find('.review-content a')[0]->getAttribute('href'))[1],
                     "starts" => [
