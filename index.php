@@ -19,7 +19,7 @@ class b2bstack
     {
         $pages = $this->pages();
         $dom = $this->dom;
-
+        
         foreach ($pages as $p => $page) {
             $dom->loadStr($page);
             foreach ($dom->find('.review-container') as $review) {
@@ -82,23 +82,18 @@ class b2bstack
 
     private function pages()
     {
-        $mc = JMathai\PhpMultiCurl\MultiCurl::getInstance();
-        $pages[] = $mc->addUrl('https://www.b2bstack.com.br/product/' . $this->business . '/avaliacoes')->response;
+        $pages[] = @file_get_contents('https://www.b2bstack.com.br/product/' . $this->business . '/avaliacoes');
 
         $dom = $this->dom;
         $dom->loadStr($pages[0]);
 
-        $pages_count = $dom->find('.pagination a')[9]->text;
+        $pages_count = count($dom->find('.pagination a'));
+        $pages_count = ($pages_count == 11 ? $dom->find('.pagination a')[9]->text : $pages_count);
 
         for ($i = 1; $i < $pages_count; $i++)
-            $pages[] = $mc->addUrl('https://www.b2bstack.com.br/product/' . $this->business . '/avaliacoes?commit=++Popularidade+&order=upvoted&page=' . ($i + 1) . '&utf8=%E2%9C%93');
+            $pages[] = @file_get_contents('https://www.b2bstack.com.br/product/' . $this->business . '/avaliacoes?order=upvoted&page=' . ($i + 1));
 
-        foreach ($pages as $key => $page)
-            $return[] = ($key == 0 ? $page : $page->response);
-
-        //echo "<pre>".$mc->getSequence()->renderAscii()."</pre>"; // Output a call sequence diagram to see how the parallel calls performed.
-
-        return $return;
+        return $pages;
     }
 }
 

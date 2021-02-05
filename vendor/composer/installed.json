@@ -242,56 +242,6 @@
             "install-path": "../guzzlehttp/psr7"
         },
         {
-            "name": "jmathai/php-multi-curl",
-            "version": "dev-master",
-            "version_normalized": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jmathai/php-multi-curl.git",
-                "reference": "ee0917264ab4ef15cf5b318a2dc7b4ac5e5847c7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jmathai/php-multi-curl/zipball/ee0917264ab4ef15cf5b318a2dc7b4ac5e5847c7",
-                "reference": "ee0917264ab4ef15cf5b318a2dc7b4ac5e5847c7",
-                "shasum": ""
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.0.*"
-            },
-            "time": "2020-12-17T07:34:16+00:00",
-            "default-branch": true,
-            "type": "library",
-            "installation-source": "source",
-            "autoload": {
-                "psr-4": {
-                    "JMathai\\PhpMultiCurl\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache"
-            ],
-            "description": "A high performance PHP library for asynchronous curl http calls.",
-            "keywords": [
-                "asynchronous",
-                "curl",
-                "parallel",
-                "php-multi-curl"
-            ],
-            "support": {
-                "issues": "https://github.com/jmathai/php-multi-curl/issues",
-                "source": "https://github.com/jmathai/php-multi-curl/tree/master"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/jmathai",
-                    "type": "github"
-                }
-            ],
-            "install-path": "../jmathai/php-multi-curl"
-        },
-        {
             "name": "myclabs/php-enum",
             "version": "1.7.7",
             "version_normalized": "1.7.7.0",

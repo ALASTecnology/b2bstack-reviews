@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '22b1c67f78022853bee0ceb9f6fa822cb1776de0',
+    'reference' => 'bf4709d6aac8ec411235ab5abb95270c3b952d8b',
     'name' => '__root__',
   ),
   'versions' => 
@@ -41,7 +41,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '22b1c67f78022853bee0ceb9f6fa822cb1776de0',
+      'reference' => 'bf4709d6aac8ec411235ab5abb95270c3b952d8b',
     ),
     'guzzlehttp/guzzle' => 
     array (
@@ -69,16 +69,6 @@ private static $installed = array (
       array (
       ),
       'reference' => '53330f47520498c0ae1f61f7e2c90f55690c06a3',
-    ),
-    'jmathai/php-multi-curl' => 
-    array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
-      'aliases' => 
-      array (
-        0 => '9999999-dev',
-      ),
-      'reference' => 'ee0917264ab4ef15cf5b318a2dc7b4ac5e5847c7',
     ),
     'myclabs/php-enum' => 
     array (
