@@ -11,7 +11,7 @@ class b2bstack
 
     public function __construct($business)
     {
-        $this->business = $business;
+        $this->business = preg_replace("/[^a-zA-Z0-9-]+/", "", $business);
         $this->dom = new Dom;
     }
 
@@ -69,7 +69,7 @@ class b2bstack
                         "functionalities" => $functionalities,
                         "support" => $support
                     ],
-                    "page" => $p+1
+                    "page" => $p + 1
                 ];
             }
         }
@@ -88,7 +88,7 @@ class b2bstack
         $dom = $this->dom;
         $dom->loadStr($pages[0]);
 
-        $pages_count = count($dom->find('.pagination a'));
+        $pages_count = $dom->find('.pagination a')[9]->text;
 
         for ($i = 1; $i < $pages_count; $i++)
             $pages[] = $mc->addUrl('https://www.b2bstack.com.br/product/' . $this->business . '/avaliacoes?commit=++Popularidade+&order=upvoted&page=' . ($i + 1) . '&utf8=%E2%9C%93');
@@ -96,11 +96,11 @@ class b2bstack
         foreach ($pages as $key => $page)
             $return[] = ($key == 0 ? $page : $page->response);
 
-        //echo $mc->getSequence()->renderAscii(); // Output a call sequence diagram to see how the parallel calls performed.
+        //echo "<pre>".$mc->getSequence()->renderAscii()."</pre>"; // Output a call sequence diagram to see how the parallel calls performed.
 
         return $return;
     }
 }
 
-$reviews = new b2bstack(preg_replace("/[^a-zA-Z0-9-]+/", "", $_GET["b"]));
+$reviews = new b2bstack($_GET["b"]);
 echo json_encode($reviews->reviews());
