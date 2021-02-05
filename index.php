@@ -2,6 +2,8 @@
 
 use PHPHtmlParser\Dom;
 
+set_time_limit(9999);
+
 require './vendor/autoload.php';
 
 class b2bstack
