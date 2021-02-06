@@ -21,32 +21,15 @@ class b2bstack
     {
         $pages = $this->pages();
         $dom = $this->dom;
-        
+
         foreach ($pages as $p => $page) {
             $dom->loadStr($page);
             foreach ($dom->find('.review-container') as $review) {
 
                 $dom->loadStr($dom->find('.ratings'));
 
-                foreach ($dom->find('.col-sm-12') as $x => $rating) {
-                    switch ($x) {
-                        case 0:
-                            $recommendation = substr_count($rating, "star_100");
-                            break;
-                        case 1:
-                            $costbenefit = substr_count($rating, "star_100");
-                            break;
-                        case 2:
-                            $usefacility = substr_count($rating, "star_100");
-                            break;
-                        case 3:
-                            $functionalities = substr_count($rating, "star_100");
-                            break;
-                        case 4:
-                            $support = substr_count($rating, "star_100");
-                            break;
-                    }
-                }
+                foreach ($dom->find('.col-sm-12') as $x => $rating)
+                    $ratings[$x] = substr_count($rating, "star_100");
 
                 $dom->loadStr($review);
                 $reviews[explode('like-number-', $dom->find('.review-share span')[0]->getAttribute('class'))[1]] = [
@@ -65,11 +48,11 @@ class b2bstack
                     "useful" => (int) $dom->find('.review-share span')[0]->text,
                     "link" => 'https://www.b2bstack.com.br/' . explode('https://www.b2bstack.com.br/', $dom->find('.review-content a')[0]->getAttribute('href'))[1],
                     "starts" => [
-                        "recommendation" => $recommendation,
-                        "costbenefit" => $costbenefit,
-                        "usefacility" => $usefacility,
-                        "functionalities" => $functionalities,
-                        "support" => $support
+                        "recommendation" => $ratings[0],
+                        "costbenefit" => $ratings[1],
+                        "usefacility" => $ratings[2],
+                        "functionalities" => $ratings[3],
+                        "support" => $ratings[4]
                     ],
                     "page" => $p + 1
                 ];
