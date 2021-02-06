@@ -26,12 +26,11 @@ class b2bstack
             $dom->loadStr($page);
             foreach ($dom->find('.review-container') as $review) {
 
-                $dom->loadStr($dom->find('.ratings'));
-
-                foreach ($dom->find('.col-sm-12') as $x => $rating)
-                    $ratings[$x] = substr_count($rating, "star_100");
-
                 $dom->loadStr($review);
+                
+                foreach ($dom->find('.ratings div') as $x => $rating)
+                    $ratings[$x-1] = substr_count($rating, "star_100");
+
                 $reviews[explode('like-number-', $dom->find('.review-share span')[0]->getAttribute('class'))[1]] = [
                     "reviewer" => [
                         "name" => $dom->find('.name')->text,
